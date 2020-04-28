@@ -1,4 +1,4 @@
-from utils import import_data
+from utils import import_data, save_plot
 from mpld3 import plugins
 import mpld3
 import numpy as np
@@ -26,4 +26,5 @@ interactive_legend = plugins.InteractiveLegendPlugin(line_plots, labels)
 plugins.connect(fig, interactive_legend)
 
 plt.tight_layout(2)
-mpld3.show()
+
+save_plot('mpld3_data1', fig)
