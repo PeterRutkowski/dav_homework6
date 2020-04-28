@@ -28,17 +28,13 @@ def build_plot_dataset_1(data, fig, ax):
 
     return line_plots
 
-def save_plot(filename, fig):
+def save_plot_mpld3(filename, fig):
     if len(argv) > 1:
         if argv[1] == '0':
             show(fig)
         else:
-            #plt.savefig('plots/' + filename + '.png', dpi=200)
             save_html(fig, 'plots/' + filename + '.html')
-            #print('plots/' + filename + '.png')
             print('plots/' + filename + '.html')
     else:
-        #plt.savefig('plots/' + filename + '.png', dpi=200)
         save_html(fig, 'plots/' + filename + 'html')
-        #print('plots/' + filename + '.png')
         print('plots/' + filename + '.html')
