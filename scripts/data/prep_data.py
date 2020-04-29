@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-data = pd.read_csv('data/ans2.tsv', sep='\t')
+data = pd.read_csv('data.tsv', sep='\t')
 datasets = np.asarray(data['dataset'])
 datasets = np.unique(datasets)
 
