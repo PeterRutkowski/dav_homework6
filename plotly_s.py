@@ -6,4 +6,6 @@ data = np.load('data/s.npy')
 x, y = data[0], data[1]
 
 fig = px.scatter(x=x, y=y)
-save_plotly('plotly_s', fig)
+fig.update_layout(title='s')
+
+save_plotly('s', fig)

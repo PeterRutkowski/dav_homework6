@@ -6,4 +6,6 @@ data = np.load('data/slant_up.npy')
 x, y = data[0], data[1]
 
 fig = px.scatter(x=x, y=y)
-save_plotly('plotly_slant_up', fig)
+fig.update_layout(title='slant_up')
+
+save_plotly('slant_up', fig)

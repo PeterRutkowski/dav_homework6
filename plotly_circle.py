@@ -6,4 +6,6 @@ data = np.load('data/circle.npy')
 x, y = data[0], data[1]
 
 fig = px.scatter(x=x, y=y)
-save_plotly('plotly_circle', fig)
+fig.update_layout(title='circle')
+
+save_plotly('circle', fig)

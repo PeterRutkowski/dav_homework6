@@ -6,4 +6,6 @@ data = np.load('data/bullseye.npy')
 x, y = data[0], data[1]
 
 fig = px.scatter(x=x, y=y)
-save_plotly('plotly_bullseye', fig)
+fig.update_layout(title='bullseye')
+
+save_plotly('bullseye', fig)
