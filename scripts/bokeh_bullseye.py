@@ -5,7 +5,7 @@ import numpy as np
 data = np.load('data/bullseye.npy')
 x, y = data[0], data[1]
 
-p = figure(title = 'bullseye')
+p = figure(title = 'bullseye', plot_width=600, plot_height=500)
 p.xaxis.axis_label = 'x'
 p.yaxis.axis_label = 'y'
 

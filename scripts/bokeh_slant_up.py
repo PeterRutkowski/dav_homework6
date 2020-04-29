@@ -5,7 +5,7 @@ import numpy as np
 data = np.load('data/slant_up.npy')
 x, y = data[0], data[1]
 
-p = figure(title = 'slant_up')
+p = figure(title = 'slant_up', plot_width=600, plot_height=500)
 p.xaxis.axis_label = 'x'
 p.yaxis.axis_label = 'y'
 

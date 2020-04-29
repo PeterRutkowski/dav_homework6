@@ -7,10 +7,10 @@ def save_plotly(filename, fig):
         if argv[1] == '0':
             fig.show()
         else:
-            fig.write_html('plots/plotly_%s.html'%(filename))
+            fig.write_html('plots/plotly_%s.html'%(filename), include_plotlyjs='cdn')
             print('plots/plotly_%s.html'%(filename))
     else:
-        fig.write_html('plots/plotly_%s.html'%(filename))
+        fig.write_html('plots/plotly_%s.html'%(filename), include_plotlyjs='cdn')
         print('plots/plotly_%s.html'%(filename))
 
 def save_bokeh(filename, plot):

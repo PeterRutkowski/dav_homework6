@@ -12,6 +12,6 @@ brush = alt.selection(type='interval', resolve='global')
 plot = alt.Chart(df).mark_circle().encode(
     x='x',y='y',
     color=alt.condition(brush, 'Dataset:N', alt.value('lightgray'))
-    ).add_selection(brush)
+    ).add_selection(brush).properties(width=600, height=500)
 
 save_altair('s', plot)

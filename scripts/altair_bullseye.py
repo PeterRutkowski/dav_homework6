@@ -10,6 +10,6 @@ df = pd.DataFrame(dict)
 scales = alt.selection_interval(bind='scales')
 
 plot = alt.Chart(df).mark_circle().encode(
-    x='x',y='y').add_selection(scales).properties(title='bullseye')
+    x='x',y='y').add_selection(scales).properties(title='bullseye', width=600, height=500)
 
 save_altair('bullseye', plot)
