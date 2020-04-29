@@ -1,5 +1,6 @@
 from sys import argv
 import bokeh
+import webbrowser
 
 def save_plotly(filename, fig):
     if len(argv) > 1:
@@ -26,7 +27,7 @@ def save_bokeh(filename, plot):
 def save_altair(filename, plot):
     if len(argv) > 1:
         if argv[1] == '0':
-            bokeh.plotting.show(plot)
+            plot.show()
         else:
             plot.save('plots/altair_%s.html'%(filename))
             print('plots/altair_%s.html'%(filename))

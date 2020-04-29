@@ -10,6 +10,6 @@ df = pd.DataFrame(dict)
 scales = alt.selection_interval(bind='scales')
 
 plot = alt.Chart(df).mark_circle().encode(
-    x='x',y='y').add_selection(scales)
+    x='x',y='y').add_selection(scales).properties(title='x')
 
 save_altair('x', plot)
