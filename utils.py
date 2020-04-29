@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sys import argv
-from mpld3 import save_html, show
+import bokeh
 import plotly.express as px
 
 def import_data(dataset_label):
@@ -72,24 +72,24 @@ def build_plot_dataset(index, ax, x, y):
     return scatter_plot
 
 
-def save_plot_mpld3(filename, fig):
-    if len(argv) > 1:
-        if argv[1] == '0':
-            show(fig)
-        else:
-            save_html(fig, 'plots/' + filename + '.html')
-            print('plots/' + filename + '.html')
-    else:
-        save_html(fig, 'plots/' + filename + '.html')
-        print('plots/' + filename + '.html')
-
 def save_plotly(filename, fig):
     if len(argv) > 1:
         if argv[1] == '0':
             fig.show()
         else:
-            fig.write_html('plots/' + filename + '.html')
-            print('plots/' + filename + '.html')
+            fig.write_html('plots/plotly_%s.html'%(filename))
+            print('plots/plotly_%s.html'%(filename))
     else:
-        fig.write_html('plots/' + filename + '.html')
-        print('plots/' + filename + '.html')
+        fig.write_html('plots/plotly_%s.html'%(filename))
+        print('plots/plotly_%s.html'%(filename))
+
+def save_bokeh(filename, plot):
+    if len(argv) > 1:
+        if argv[1] == '0':
+            bokeh.plotting.show(plot)
+        else:
+            bokeh.io.saving.save(plot, 'plots/bokeh_%s.html'%(filename), title=filename)
+            print('plots/bokeh_%s.html'%(filename))
+    else:
+        bokeh.io.saving.save(plot, 'plots/bokeh_%s.html'%(filename), title=filename)
+        print('plots/bokeh_%s.html' % (filename))
