@@ -14,6 +14,7 @@ def build_plot_dataset_1(data, fig, ax):
     ax.set_ylim(0, 1500000000)
     ax.set_xlim(1960, 2020)
     ax.set_ylabel('Population [billion]')
+    ax.set_xlabel('Time')
     ax.set_xticks(np.arange(1960, 2021, 10))
     ax.set_yticks(np.arange(0, 1500000000, 200000000))
     y_labels = ['0', '0.2', '0.4', '0.6', '0.8', '1.0', '1.2', '1.4']
@@ -28,10 +29,11 @@ def build_plot_dataset_1(data, fig, ax):
 
     return line_plots
 
-def build_plot_dataset_1(data, fig, ax):
+def build_plot_dataset_2(data, fig, ax):
     ax.set_ylim(0, 14000000)
     ax.set_xlim(1960, 2020)
     ax.set_ylabel('Population [million]')
+    ax.set_xlabel('Time')
     ax.set_xticks(np.arange(1960, 2021, 10))
     ax.set_yticks(np.arange(0, 14000000, 1500000))
     y_labels = ['0','1.5','3.0','4.5','6.0','7.5','9.0','10.5','12.0','13.5']
