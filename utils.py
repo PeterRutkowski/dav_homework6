@@ -3,12 +3,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sys import argv
 from mpld3 import save_html, show
+import plotly.express as px
 
 def import_data(dataset_label):
-    data = pd.read_csv('data/dataset%s.csv' % (str(dataset_label)))
-    labels = list(data['country'])
-    data = np.asarray(data.drop(['country'], axis=1))
-    return data, labels
+    if dataset_label<3:
+        data = pd.read_csv('data/dataset%s.csv' % (str(dataset_label)))
+        labels = list(data['country'])
+        data = np.asarray(data.drop(['country'], axis=1))
+        return data, labels
+    else:
+        data = pd.read_csv('data/dataset3.csv')
+        x = data['x%s' % (str(dataset_label-2))]
+        y = data['y%s' % (str(dataset_label-2))]
+        return list(x), list(y)
 
 def build_plot_dataset_1(data, fig, ax):
     ax.set_ylim(0, 1500000000)
@@ -49,6 +56,22 @@ def build_plot_dataset_2(data, fig, ax):
 
     return line_plots
 
+def build_plot_dataset(index, ax, x, y):
+    ax.set_xlim(0, 20)
+    ax.set_ylim(0, 14)
+    ax.set_xticks(np.arange(0, 20, 2))
+    ax.set_yticks(np.arange(0, 14, 2))
+    ax.set_xlabel('x%s'%(str(index-2)))
+    ax.set_ylabel('y%s'%(str(index-2)))
+    scatter_plot = ax.scatter(x, y, s=15, alpha=0.8, c='orange', edgecolors='red', linewidths=1)
+
+    x = np.linspace(0, 20, 10)
+    y = 0.5 * x + 3
+    ax.plot(x, y, linewidth=1, c='blue')
+
+    return scatter_plot
+
+
 def save_plot_mpld3(filename, fig):
     if len(argv) > 1:
         if argv[1] == '0':
@@ -58,4 +81,15 @@ def save_plot_mpld3(filename, fig):
             print('plots/' + filename + '.html')
     else:
         save_html(fig, 'plots/' + filename + '.html')
+        print('plots/' + filename + '.html')
+
+def save_plotly(filename, fig):
+    if len(argv) > 1:
+        if argv[1] == '0':
+            fig.show()
+        else:
+            fig.write_html('plots/' + filename + '.html')
+            print('plots/' + filename + '.html')
+    else:
+        fig.write_html('plots/' + filename + '.html')
         print('plots/' + filename + '.html')
