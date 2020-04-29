@@ -68,13 +68,10 @@ bokeh_data4.py      bokeh_data5.py      bokeh_data6.py
 Prepare the homework as a project directory with the above plots. 
 
 It should contain:
-- the main report file in HTML form (with all the plots embedded)* 
+- the main report file in HTML form (with all the plots embedded) - static HTML without external dependencies
 - the data for plots
-- the python scripts generating plots (one script per one plot)**
+- the python scripts generating plots (one script per one plot)
 - the separate plots
-
-*  static HTML without external dependencies
-** plain python plots (*.py)- thus no jupyter notebooks
 
 Additionally, the script should one parameter [0/1] for showing or 
 saving the plot.
